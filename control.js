@@ -302,13 +302,13 @@ function AddScore(value){
     currentScore.textContent = parseInt(currentScore.textContent) + value;
     scoreDisplay.style.left = (mouseX - 20) + "px";
     scoreDisplay.style.top = (mouseY- 20) + "px";
-    scoreDisplay.classList.add("visible");
     if(scoreDisplay.classList.contains("visible")){
         scoreDisplay.textContent = parseInt(scoreDisplay.textContent) + value;
     }
     else{
         scoreDisplay.textContent = value;
     }
+    scoreDisplay.classList.add("visible");
     setTimeout(function(){
         scoreDisplay.classList.remove("visible");
     }, "1000");
