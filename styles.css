@@ -18,6 +18,10 @@ body{
     padding: 24px;
 }
 
+i{
+    cursor:pointer;
+}
+
 #highscores{
     position:fixed;
     right: 0;
@@ -181,7 +185,7 @@ body{
 .app-bar{
     background-color:#005eb5;
     color:white;
-    font-size:1.4em;
+    font-size:250%;
     padding: 1em;
     padding-left:3em;
     z-index:4;
