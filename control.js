@@ -79,6 +79,7 @@ function signin(){
 function reportWindowSize(){
     var value = window.innerWidth / ((w* size + (padding * 2)));
     value = Math.min(value, 1);
+    value *= .9;
     playArea.style.transform = "scale(" + value + ")";
     playAreaContainer.style.left = (window.innerWidth - ((w* size + (padding * 2)))) / 2 + "px";
 }
