@@ -409,7 +409,7 @@ function incrementBlock(x,y){
                     block.textContent = blockText[i];
                 }
             }
-            block.classList.add("chagned");
+            block.classList.add("changed");
         }
     }
 }
