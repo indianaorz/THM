@@ -10,14 +10,16 @@
         <script src = "control.js" type="text/javascript"></script>
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
         <link href = "https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/e140bf62aa.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <div class="app-bar">
             Treasure Hunter
-            <span style="position:absolute; right: 24px">
+            <span style="position:absolute; right: 64px">
                 <label>Current Score:</label>
                 <span id="current-score"></span>
             </span>
+            <i class="fas fa-list-ol" style="position:absolute; right:24px" onclick="toggleScore()"></i>
         </div>
         <div id = "sign-in-parent">
             <div id="sign-in" class="transition">
@@ -34,7 +36,7 @@
             </div>
         </div>
 
-        <div id = "highscores">
+        <div id = "highscores" class="hidden">
             <label>Top Highscores</label>
             <ol id="highscores-data">
                 

@@ -17,20 +17,24 @@ body{
     margin:auto;
     margin-top:12px;
     padding: 24px;
-    margin-left:4%;
 }
 
 #highscores{
     position:fixed;
     right: 0;
-    width:25%;
+    width:50%;
     font-size: 1.75em;
     height:100%;
     top:54px;
     padding:24px;
     background-color:white;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    z-index: -1;
+    z-index: 5;
+    transition: all 300ms ease-in-out;
+}
+
+#highscores.hidden{
+    right:-25%;
 }
 
 #score-display{
@@ -71,13 +75,13 @@ body{
     width: 70%;
     margin-left: 10%;
     margin-right: auto;
-    margin-top: 25px;
+    margin-top: 12px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    border-radius: 2px;
+    border-radius: 8px;
     padding: 50px;
     background-color: white;
     display: flex;
-    height: 500px;
+    height: 250px;
     flex-direction: column;
     /* align-items: center; */
     justify-content: center;

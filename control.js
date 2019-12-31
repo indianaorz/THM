@@ -64,6 +64,10 @@ for(var i = 0, l = w; i < l; i++){
     }
 }
 
+function toggleScore(){
+    document.getElementById("highscores").classList.toggle("hidden");
+}
+
 function signin(){
     username = document.getElementById("username").value;
     localStorage.setItem("username",username);
@@ -73,10 +77,10 @@ function signin(){
 }
 
 function reportWindowSize(){
-    var value = window.innerWidth / ((w* size + (padding * 2)) * 1.5);
+    var value = window.innerWidth / ((w* size + (padding * 2)));
     value = Math.min(value, 1);
     playArea.style.transform = "scale(" + value + ")";
-    playAreaContainer.style.left = (window.innerWidth - ((w* size + (padding * 2)) * 1.5)) / 2.75;
+    playAreaContainer.style.left = (window.innerWidth - ((w* size + (padding * 2)))) / 2 + "px";
 }
 
 function GetHighscores(){
