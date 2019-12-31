@@ -3,7 +3,7 @@ var h = 11;
 var size = 50;
 var padding = 24;
 
-var SERVERURI = "";
+var SERVERURI = "https://thmserver20191231015825.azurewebsites.net/highscore";//"https://localhost:44345/highscore";
 
 var topHighscoreScount = 10;
 
@@ -82,7 +82,7 @@ function GetHighscores(){
     $.get(SERVERURI,function(data){
         if(null != data){
             highscoreData = data;
-            SetHighscores(highscoresData);
+            SetHighscores(highscoreData);
         }
     });
 }
@@ -91,7 +91,7 @@ function SetHighscores(highscoresData){
     if(null == highscoresData){
         return;
     }
-    highscoreData.sort((a,b) => (a.score < b.score) ? 1 : -1);
+    highscoresData.sort((a,b) => (a.score < b.score) ? 1 : -1);
 
     while(highscores.firstChild){
         highscores.removeChild(highscores.firstChild);
