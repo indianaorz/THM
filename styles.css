@@ -24,6 +24,7 @@ body{
     position:fixed;
     right: 0;
     width:25%;
+    font-size: 1.75em;
     height:100%;
     top:54px;
     padding:24px;
@@ -56,18 +57,30 @@ body{
 
 .new{
     font-weight: 1000;
-    font-size:1.2em;
+    font-size:2em;
+}
+
+#sign-in-parent{
+    display:flex; 
+    flex-direction:column; 
+    justify-content: center;
 }
 
 #sign-in{
-    width:35%;
+    width: 70%;
     margin-left: 10%;
     margin-right: auto;
-    margin-top:10%;
+    margin-top: 25px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    border-radius:2px;
+    border-radius: 2px;
     padding: 50px;
-    background-color:white;
+    background-color: white;
+    display: flex;
+    height: 500px;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    font-size: 3em;
 }
 
 .button{
@@ -75,7 +88,6 @@ body{
     color:white;
     border-radius: 4px;
     border:none;
-    width: 25%;
     float:right;
     text-transform: uppercase;
     cursor:pointer;
@@ -182,6 +194,7 @@ input{
     width:100%;
     margin-bottom:1em;
     padding: .5em;
+    font-size:1em;
 }
 
 .content{

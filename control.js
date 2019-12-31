@@ -69,6 +69,7 @@ function signin(){
     localStorage.setItem("username",username);
     document.getElementById("content").classList.remove("hidden");
     document.getElementById("sign-in").classList.add("hidden");
+    document.getElementById("sign-in-parent").classList.add("hidden");
 }
 
 function reportWindowSize(){
@@ -116,6 +117,8 @@ $(document).ready(function(){
     scoreDisplay = document.getElementById("score-display");
     highscores= document.getElementById("highscores-data");
     currentScore = document.getElementById("current-score");
+
+    document.getElementById("sign-in-parent").style.height = window.innerHeight + "px";
 
     playArea.style.width = w * size + "px";
     playArea.style.height = h * size + "px";
