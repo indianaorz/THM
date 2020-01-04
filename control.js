@@ -5,7 +5,7 @@ var padding = 24;
 
 var SERVERURI = "https://thmserver20191231015825.azurewebsites.net/highscore";//"https://localhost:44345/highscore";
 
-var topHighscoreScount = 10;
+var topHighscoreScount = 25;
 
 var scorePerBlock = 2.5;
 var increasePerChain = 2;
