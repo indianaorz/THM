@@ -66,6 +66,7 @@ for(var i = 0, l = w; i < l; i++){
 
 function toggleScore(){
     document.getElementById("highscores").classList.toggle("hidden");
+    document.getElementById("highscores-back").classList.toggle("hidden");
 }
 
 function signin(){
@@ -78,10 +79,10 @@ function signin(){
 
 function reportWindowSize(){
     var value = window.innerWidth / ((w* size + (padding * 2)));
-    value = Math.min(value, 1);
     value *= .85;
     playArea.style.transform = "scale(" + value + ")";
     playAreaContainer.style.left = (window.innerWidth - ((w* size + (padding * 2)))) / 2 + "px";
+    playAreaContainer.style.top = (window.innerWidth - ((h* size + (padding * 2)))) / 4 + "px";
 }
 
 function GetHighscores(){

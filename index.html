@@ -15,11 +15,11 @@
     <body>
         <div class="app-bar">
             Treasure Sweeper
-            <span style="position:absolute; right: 80px">
+            <span style="position:absolute; right: 4em">
                 <label>Current Score:</label>
                 <span id="current-score"></span>
             </span>
-            <i class="fas fa-list-ol" style="position:absolute; right:24px" onclick="toggleScore()"></i>
+            <i class="fas fa-list-ol"  onclick="toggleScore()"></i>
         </div>
         <div id = "sign-in-parent">
             <div id="sign-in" class="transition">
@@ -42,5 +42,6 @@
                 
             </ol>
         </div>
+        <div id ="highscores-back" class="hidden" onclick="toggleScore()"></div>
     </body>
 </html>

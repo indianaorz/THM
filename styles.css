@@ -19,6 +19,12 @@ body{
 }
 
 i{
+    position: absolute;
+    right: 24px;
+    padding: 24px;
+    top: 12px;
+    border: solid;
+    border-radius: 1em;
     cursor:pointer;
 }
 
@@ -28,12 +34,29 @@ i{
     width:50%;
     font-size: 1.75em;
     height:100%;
-    top:54px;
+    top:6em;
     padding:24px;
     background-color:white;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     z-index: 5;
     transition: all 300ms ease-in-out;
+}
+
+#highscores-back{
+    position:fixed;
+    width: 100%;
+    height: 2000px;
+    top:0;
+    left:0;
+    background-color: rgba(0,0,0,.4);
+    z-index:4;
+    transition: background-color 300ms ease-in-out;
+}
+
+#highscores-back.hidden{
+    width:0;
+    height:0;
+    background-color: rgba(0,0,0,0);
 }
 
 #highscores.hidden{
