@@ -309,8 +309,8 @@ function CheckHiddenPoints(){
 
 function AddScore(value){
     currentScore.textContent = parseInt(currentScore.textContent) + value;
-    scoreDisplay.style.left = (mouseX - 20) + "px";
-    scoreDisplay.style.top = (mouseY- 20) + "px";
+    scoreDisplay.style.left = (mouseX - 20) + window.scrollX + "px";
+    scoreDisplay.style.top = (mouseY- 20) + window.scrollY+ "px";
     if(scoreDisplay.classList.contains("visible")){
         scoreDisplay.textContent = parseInt(scoreDisplay.textContent) + value;
     }
