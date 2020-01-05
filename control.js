@@ -91,7 +91,7 @@ function signin(){
         classes.push("four");
         blockText.push(".v");
         scorePerBlock *= hardDifficultyMult;
-        hiddenPoints.push(4000);
+        hiddenPoints.push(1000);
     }
     
     if(difficulty == "mean"){
@@ -99,8 +99,8 @@ function signin(){
         blockText.push(".v");
         classes.push("five");
         blockText.push("v");
-        hiddenPoints.push(4000);
-        hiddenPoints.push(5000);
+        hiddenPoints.push(1000);
+        hiddenPoints.push(3000);
         scorePerBlock *= meanDifficultyMult;
     }
     
