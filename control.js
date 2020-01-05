@@ -9,6 +9,7 @@ var topHighscoreScount = 25;
 
 var scorePerBlock = 2.5;
 var increasePerChain = 2;
+var easyDifficultyMult = .15;
 var hardDifficultyMult = 2;
 var meanDifficultyMult = 3;
 
@@ -81,6 +82,11 @@ function signin(){
     var difficulty = e.options[e.selectedIndex].value;
     console.log(difficulty);
 
+    if(difficulty == "easy"){
+        classes = classes.splice(0,2);
+        blockText = blockText.splice(0,2);
+        scorePerBlock *= easyDifficultyMult;
+    }
     if(difficulty == "hard"){
         classes.push("four");
         blockText.push(".v");
