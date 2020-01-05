@@ -185,8 +185,39 @@ function StartGame(){
         hp.textContent = hiddenPoint;
         hp.classList.add("hidden-point");
         hp.classList.add("transition");
-        hp.style.left = Math.max(.15,Math.min(Math.random(),.85)) * w * size + padding + "px";
-        hp.style.top = Math.max(.15,Math.min(Math.random(),.85)) * h * size + padding + "px";
+        var intersects = true;
+        while(intersects){
+            var left = Math.max(.15,Math.min(Math.random(),.85)) * w * size + padding;
+            var top = Math.max(.15,Math.min(Math.random(),.85)) * h * size + padding;
+            
+            var r1 = {
+                left: left,
+                right:left+size * 4,
+                top: top,
+                bottom: top + size * 3
+            };
+
+            var anyIntersect = false;
+            activeHiddenpoints.forEach(function(otherPoint){
+                
+                var r2 = {
+                    left: parseInt(otherPoint.style.left),
+                    right: parseInt(otherPoint.style.left) + size,
+                    top: parseInt(otherPoint.style.top),
+                    bottom: parseInt(otherPoint.style.top) + size
+                };
+                if(intersectRect(r1,r2)){
+                    anyIntersect = true;
+                }
+            });
+
+            if(!anyIntersect){
+                intersects = false;
+            }
+
+            hp.style.left =  left + "px";
+            hp.style.top =  top + "px";
+        }
         playArea.appendChild(hp);
         activeHiddenpoints.push(hp);
     });
