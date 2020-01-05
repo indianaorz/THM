@@ -29,7 +29,7 @@ i{
 }
 
 #highscores{
-    position:fixed;
+    position:absolute;
     right: 0;
     width:50%;
     font-size: 1.75em;
