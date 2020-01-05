@@ -183,7 +183,8 @@ $(document).ready(function(){
 });
 
 function StartGame(){
-    currentScore.textContent = 0;
+    score = 0;
+    currentScore.textContent = score;
     while(playArea.firstChild){
         playArea.removeChild(playArea.firstChild);
     }
@@ -378,9 +379,10 @@ function CheckHiddenPoints(){
             }
     });
 }
-
+var score = 0;
 function AddScore(value){
-    currentScore.textContent = parseInt(currentScore.textContent) + value;
+    score += value;
+    currentScore.textContent = score;
     scoreDisplay.style.left = (mouseX - 20) - window.scrollX + "px";
     scoreDisplay.style.top = (mouseY- 20) - window.scrollY+ "px";
     if(scoreDisplay.classList.contains("visible")){
@@ -404,7 +406,7 @@ function intersectRect(r1,r2){
 
 function EndGame(){
     var body = {
-        "score": parseInt(currentScore.textContent),
+        "score": score,
         "date":new Date().toISOString(),
         "user":username,
         "difficulty":difficulty
