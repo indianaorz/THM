@@ -8,6 +8,8 @@ body{
     padding:0;
     margin:0;
     background-color:#888;
+    overflow:hidden;
+    position:relative;
 }
 
 #play-area{
@@ -62,6 +64,7 @@ i{
 
 #highscores.hidden{
     right:-50%;
+    width:0;
 }
 
 #score-display{
