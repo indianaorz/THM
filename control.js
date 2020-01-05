@@ -5,11 +5,11 @@ var padding = 24;
 
 var SERVERURI = "https://thmserver20191231015825.azurewebsites.net/highscore";//"https://localhost:44345/highscore";
 
-var topHighscoreScount = 25;
+var topHighscoreScount = 50;
 
 var scorePerBlock = 2.5;
 var increasePerChain = 2;
-var easyDifficultyMult = .15;
+var easyDifficultyMult = .1;
 var hardDifficultyMult = 2;
 var meanDifficultyMult = 3;
 
@@ -71,7 +71,7 @@ function toggleScore(){
     document.getElementById("highscores").classList.toggle("hidden");
     document.getElementById("highscores-back").classList.toggle("hidden");
 }
-
+var difficulty;
 function signin(){
     username = document.getElementById("username").value;
     localStorage.setItem("username",username);
@@ -79,12 +79,13 @@ function signin(){
     document.getElementById("sign-in").classList.add("hidden");
     document.getElementById("sign-in-parent").classList.add("hidden");
     var e = document.getElementById("difficulty");
-    var difficulty = e.options[e.selectedIndex].value;
+     difficulty= e.options[e.selectedIndex].value;
     console.log(difficulty);
 
     if(difficulty == "easy"){
         classes = classes.splice(0,2);
         blockText = blockText.splice(0,2);
+        hiddenPoints = hiddenPoints.splice(0,3);
         scorePerBlock *= easyDifficultyMult;
     }
     if(difficulty == "hard"){
@@ -137,7 +138,7 @@ function SetHighscores(highscoresData){
     highscoresData.forEach(function(score, i){
         if(i<topHighscoreScount){
             var scoreNode = document.createElement("li");
-            scoreNode.textContent = score.score + " ------------- " + score.user;
+            scoreNode.textContent = score.score + " ------------- " + score.user + " - " + score.difficulty;
             if(Date.now() - new Date(highscoresData[i].date) < 10000){
                 scoreNode.classList.add("new");
             }
@@ -232,9 +233,9 @@ function StartGame(){
                 
                 var r2 = {
                     left: parseInt(otherPoint.style.left),
-                    right: parseInt(otherPoint.style.left) + size,
+                    right: parseInt(otherPoint.style.left) + size * 5,
                     top: parseInt(otherPoint.style.top),
-                    bottom: parseInt(otherPoint.style.top) + size
+                    bottom: parseInt(otherPoint.style.top) + size* 5
                 };
                 if(intersectRect(r1,r2)){
                     anyIntersect = true;
@@ -395,7 +396,8 @@ function EndGame(){
     var body = {
         "score": parseInt(currentScore.textContent),
         "date":new Date().toISOString(),
-        "user":username
+        "user":username,
+        "difficulty":difficulty
     };
     $.ajax({
         type:"POST",
