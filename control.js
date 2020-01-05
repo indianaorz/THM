@@ -140,13 +140,13 @@ function SetHighscores(highscoresData){
             var scoreNode = document.createElement("li");
             scoreNode.textContent = score.score + " ------------- " + score.user + " - " + score.difficulty;
             if(score.difficulty == "easy"){
-                scoreNode.style.color = "rgb(0,0,100)";
+                scoreNode.style.color = "rgb(0,0,180)";
             }
             if(score.difficulty == "hard"){
-                scoreNode.style.color = "rgb(0,100,0)";
+                scoreNode.style.color = "rgb(0,180,0)";
             }
             if(score.difficulty == "mean"){
-                scoreNode.style.color = "rgb(100,0,0)";
+                scoreNode.style.color = "rgb(180,0,0)";
 
             }
             if(Date.now() - new Date(highscoresData[i].date) < 10000){
