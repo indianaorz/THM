@@ -223,9 +223,9 @@ function StartGame(){
             
             var r1 = {
                 left: left,
-                right:left+size * 5,
+                right:left+size * 2,
                 top: top,
-                bottom: top + size * 5
+                bottom: top + size * 3
             };
 
             var anyIntersect = false;
@@ -233,9 +233,9 @@ function StartGame(){
                 
                 var r2 = {
                     left: parseInt(otherPoint.style.left),
-                    right: parseInt(otherPoint.style.left) + size * 5,
+                    right: parseInt(otherPoint.style.left) + size * 2,
                     top: parseInt(otherPoint.style.top),
-                    bottom: parseInt(otherPoint.style.top) + size* 5
+                    bottom: parseInt(otherPoint.style.top) + size* 3
                 };
                 if(intersectRect(r1,r2)){
                     anyIntersect = true;
