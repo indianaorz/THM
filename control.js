@@ -139,6 +139,16 @@ function SetHighscores(highscoresData){
         if(i<topHighscoreScount){
             var scoreNode = document.createElement("li");
             scoreNode.textContent = score.score + " ------------- " + score.user + " - " + score.difficulty;
+            if(score.difficulty == "easy"){
+                scoreNode.style.color = "rgb(0,0,100)";
+            }
+            if(score.difficulty == "hard"){
+                scoreNode.style.color = "rgb(0,100,0)";
+            }
+            if(score.difficulty == "mean"){
+                scoreNode.style.color = "rgb(100,0,0)";
+
+            }
             if(Date.now() - new Date(highscoresData[i].date) < 10000){
                 scoreNode.classList.add("new");
             }
