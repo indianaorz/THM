@@ -9,6 +9,8 @@ var topHighscoreScount = 25;
 
 var scorePerBlock = 2.5;
 var increasePerChain = 2;
+var hardDifficultyMult = 2;
+var meanDifficultyMult = 3;
 
 var classes = ["one","two","three"];
 var blockText = [".","..","..."];
@@ -75,6 +77,28 @@ function signin(){
     document.getElementById("content").classList.remove("hidden");
     document.getElementById("sign-in").classList.add("hidden");
     document.getElementById("sign-in-parent").classList.add("hidden");
+    var e = document.getElementById("difficulty");
+    var difficulty = e.options[e.selectedIndex].value;
+    console.log(difficulty);
+
+    if(difficulty == "hard"){
+        classes.push("four");
+        blockText.push(".v");
+        scorePerBlock *= hardDifficultyMult;
+        hiddenPoints.push(4000);
+    }
+    
+    if(difficulty == "mean"){
+        classes.push("four");
+        blockText.push(".v");
+        classes.push("five");
+        blockText.push("v");
+        hiddenPoints.push(4000);
+        hiddenPoints.push(5000);
+        scorePerBlock *= meanDifficultyMult;
+    }
+    
+    StartGame();
 }
 
 function reportWindowSize(){
@@ -124,6 +148,7 @@ $(document).ready(function(){
     highscores= document.getElementById("highscores-data");
     currentScore = document.getElementById("current-score");
 
+
     document.getElementById("sign-in-parent").style.height = window.innerHeight + "px";
 
     playArea.style.width = w * size + "px";
@@ -138,7 +163,6 @@ $(document).ready(function(){
 
     document.getElementById("username").value = localStorage.getItem("username");
 
-    StartGame();
 });
 
 function StartGame(){
@@ -192,9 +216,9 @@ function StartGame(){
             
             var r1 = {
                 left: left,
-                right:left+size * 4,
+                right:left+size * 5,
                 top: top,
-                bottom: top + size * 3
+                bottom: top + size * 5
             };
 
             var anyIntersect = false;
@@ -293,7 +317,7 @@ function clearblocks(){
             if(blocks[x][y].classList.contains("hover")
             && !blocks[x][y].classList.contains("cleared")){
                 blocks[x][y].classList.add("cleared");
-                AddScore((scorePerBlock * increasePerChain * (hoverCount - 1)));
+                AddScore(Math.ceil(scorePerBlock * increasePerChain * (hoverCount - 1)));
                 incrementAdjacent(x,y);
             }
         }
